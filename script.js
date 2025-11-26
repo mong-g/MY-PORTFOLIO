@@ -108,4 +108,10 @@ document.addEventListener('DOMContentLoaded', () => {
             el.style.transform = 'translateY(0)';
         });
     }, 300);
+    
+    // Add animated background elements to the body
+    const bgElements = document.querySelectorAll('.code-element');
+    bgElements.forEach(el => {
+        el.style.opacity = '0.1';
+    });
 });
