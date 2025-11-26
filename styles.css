@@ -18,6 +18,14 @@
     --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+/* Dark theme variables */
+.dark-theme {
+    --text-color: #f0f0f0;
+    --light-text: #a0aec0;
+    --bg-color: #1a202c;
+    --card-bg: #2d3748;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -25,7 +33,7 @@ html {
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-color);
-    background-color: #f8fafc;
+    background-color: var(--bg-color);
     background-image: 
         linear-gradient(rgba(203, 213, 225, 0.1) 1px, transparent 1px),
         linear-gradient(90deg, rgba(203, 213, 225, 0.1) 1px, transparent 1px);
@@ -33,9 +41,10 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
+    transition: background-color 0.3s ease;
 }
 
-/* Animated background elements */
+/* Simple animated dots background */
 body::before {
     content: "";
     position: fixed;
@@ -45,10 +54,18 @@ body::before {
     height: 100%;
     background: 
         radial-gradient(circle at 15% 25%, rgba(99, 102, 241, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 25%),
-        radial-gradient(circle at 70% 40%, rgba(236, 72, 153, 0.05) 0%, transparent 30%);
-    z-index: -2;
-    animation: subtleMove 25s linear infinite;
+        radial-gradient(circle at 85% 75%, rgba(139, 92, 246, 0.08) 0%, transparent 25%);
+    z-index: -1;
+    animation: floatBackground 20s linear infinite;
+}
+
+@keyframes floatBackground {
+    0% {
+        background-position: 0 0, 0 0;
+    }
+    100% {
+        background-position: 500px 500px, -500px -500px;
+    }
 }
 
 @keyframes subtleMove {
@@ -229,6 +246,28 @@ p {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+.theme-toggle {
+    background: var(--card-bg);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 20px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    color: var(--secondary-color);
 }
 
 .hamburger {

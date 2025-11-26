@@ -4,11 +4,40 @@ const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const navbar = document.querySelector('.navbar');
 const sections = document.querySelectorAll('section');
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 const observerOptions = {
     root: null,
     rootMargin: '0px',
     threshold: 0.6
 };
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    
+    // Update icon based on current theme
+    const icon = themeToggle.querySelector('i');
+    if (body.classList.contains('dark-theme')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+        localStorage.setItem('theme', 'light');
+    }
+});
+
+// Check for saved theme preference or default to light
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    body.classList.add('dark-theme');
+    themeToggle.querySelector('i').classList.remove('fa-moon');
+    themeToggle.querySelector('i').classList.add('fa-sun');
+} else {
+    themeToggle.querySelector('i').classList.add('fa-moon');
+}
 
 // Hamburger Menu Toggle
 hamburger.addEventListener('click', () => {
