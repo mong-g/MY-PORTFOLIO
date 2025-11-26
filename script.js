@@ -114,4 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
     bgElements.forEach(el => {
         el.style.opacity = '0.1';
     });
+    
+    // Handle education timeline animation
+    const educationItems = document.querySelectorAll('.education-item');
+    educationItems.forEach((item, index) => {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        
+        // Add staggered delay for each item
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+        }, 400 + (index * 200));
+    });
 });
