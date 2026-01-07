@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -12,7 +13,7 @@ export default function Hero() {
             Elijah Alrhoy Ortega
           </h1>
           <h2 className="text-xl md:text-2xl mb-6 text-primary">
-            Benedicto College
+            Bachelor of Science in Information Technology
           </h2>
           <p className="text-lg mb-8 max-w-lg mx-auto md:mx-0 text-light-text dark:text-gray-300">
             Passionate about exploring new technologies and continuously learning in the IT field. 
@@ -42,10 +43,14 @@ export default function Hero() {
         </div>
         
         <div className="md:w-1/2 flex justify-center">
-          <div className="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center animate-float">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-24 w-24 text-white" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-            </svg>
+          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl animate-float">
+            <Image 
+              src="/bw-elijah.png" 
+              alt="Elijah Alrhoy Ortega" 
+              fill
+              className="object-cover"
+              priority
+            />
           </div>
         </div>
       </div>
