@@ -21,23 +21,25 @@ export default function Education() {
   ];
 
   return (
-    <section id="education" className="py-20 bg-bg-color dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-text-color dark:text-white relative">
+    <section id="education" className="py-24 bg-bg-color">
+      <div className="container mx-auto px-6">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4">
+          <span className="w-12 h-0.5 bg-accent"></span>
           Education
-          <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
         </h2>
         
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl">
           {educationItems.map((item, index) => (
-            <div key={index} className="mb-8 relative pl-8 border-l-2 border-primary dark:border-accent">
-              <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-primary dark:bg-accent"></div>
-              <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg transition-transform hover:-translate-y-1">
-                <div className="text-sm font-semibold text-primary dark:text-accent mb-2">{item.date}</div>
-                <h3 className="text-xl font-bold text-text-color dark:text-white mb-1">{item.degree}</h3>
-                <h4 className="text-lg text-text-color dark:text-gray-200 mb-3">{item.institution}</h4>
-                <p className="text-light-text dark:text-gray-300">{item.description}</p>
+            <div key={index} className="relative pl-10 pb-12 last:pb-0 border-l border-white/10">
+              <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-accent"></div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
+                <h3 className="text-xl font-bold text-white">{item.degree}</h3>
+                <span className="text-sm font-medium text-accent">{item.date}</span>
               </div>
+              
+              <h4 className="text-lg text-slate-300 mb-4">{item.institution}</h4>
+              <p className="text-slate-400 leading-relaxed max-w-2xl">{item.description}</p>
             </div>
           ))}
         </div>

@@ -3,54 +3,62 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section id="home" className="pt-32 pb-20 bg-card-bg dark:bg-gray-800 relative overflow-hidden">
-      <div className="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between">
-        <div className="text-center md:text-left mb-10 md:mb-0 md:w-1/2">
-          <div className="inline-block bg-primary text-white px-4 py-1 rounded-full text-sm mb-4">
+    <section id="home" className="pt-32 pb-20 min-h-screen flex items-center bg-bg-color relative overflow-hidden">
+      
+      {/* Background Profile Image (Behind Text) */}
+      <div className="absolute right-0 top-0 w-full h-full md:w-[60%] opacity-50 md:opacity-70 pointer-events-none select-none">
+        <Image 
+          src="/bw-elijah.png" 
+          alt="Elijah Alrhoy Ortega Background" 
+          fill
+          className="object-cover object-right"
+          priority
+        />
+        {/* Subtle left-side fade for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-bg-color via-bg-color/40 to-transparent"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col items-start max-w-4xl">
+          
+          {/* Role / Sub-headline */}
+          <h2 className="text-xl md:text-2xl font-bold text-slate-500 mb-2 tracking-wide uppercase">
             IT Student & Web Developer
-          </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-text-color dark:text-white">
-            Elijah Alrhoy Ortega
-          </h1>
-          <h2 className="text-xl md:text-2xl mb-6 text-primary">
-            Bachelor of Science in Information Technology
           </h2>
-          <p className="text-lg mb-8 max-w-lg mx-auto md:mx-0 text-light-text dark:text-gray-300">
-            Passionate about exploring new technologies and continuously learning in the IT field. 
-            Always eager to expand my knowledge and skills in web development and beyond.
+
+          {/* Main Name */}
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-extrabold text-white tracking-tighter leading-none mb-8">
+            ELIJAH<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-200 to-slate-600">ORTEGA</span>
+            <span className="text-primary">.</span>
+          </h1>
+
+          {/* Description */}
+          <p className="text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed mb-10 border-l-2 border-primary/50 pl-6">
+            I build accessible, pixel-perfect, and performant web experiences. 
+            Currently focused on mastering full-stack development and creating 
+            seamless user interfaces.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
-            <Link 
-              href="#projects" 
-              className="btn btn-primary bg-primary hover:bg-secondary text-white rounded-full px-8 py-3 transition-transform hover:-translate-y-1 shadow-lg"
-            >
-              View Projects
-            </Link>
-            <Link 
-              href="#contact" 
-              className="btn btn-outline btn-primary border-primary text-primary hover:bg-primary hover:text-white rounded-full px-8 py-3 transition-transform hover:-translate-y-1"
-            >
-              Contact Me
-            </Link>
+
+          {/* Action Area */}
+          <div className="flex flex-col items-start gap-8">
             <a 
               href="/cv.pdf" 
-              download 
-              className="btn btn-accent bg-accent hover:bg-primary text-white rounded-full px-8 py-3 transition-transform hover:-translate-y-1 shadow-lg flex items-center gap-2"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-3 border border-white/10 hover:border-white/40 text-white font-medium rounded-lg transition-all flex items-center gap-2 bg-white/5 backdrop-blur-sm"
             >
-              <i className="fas fa-download"></i> Download CV
+              <i className="far fa-file-alt text-xs text-slate-400"></i> 
+              View Resume
             </a>
-          </div>
-        </div>
-        
-        <div className="md:w-1/2 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-primary shadow-2xl animate-float">
-            <Image 
-              src="/bw-elijah.png" 
-              alt="Elijah Alrhoy Ortega" 
-              fill
-              className="object-cover"
-              priority
-            />
+
+            <Link 
+              href="#projects" 
+              className="group flex items-center gap-3 text-white border-b border-white/20 pb-1 hover:text-primary hover:border-primary transition-all duration-300"
+            >
+              <span className="text-lg font-medium">View Selected Works</span>
+              <i className="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+            </Link>
           </div>
         </div>
       </div>

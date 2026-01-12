@@ -9,7 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -21,37 +21,33 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-md' : 'py-5 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md'}`}>
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-primary">
-          <Link href="/">Elijah</Link>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-4 bg-bg-color/80 backdrop-blur-md shadow-sm border-b border-white/5' : 'py-6 bg-transparent'}`}>
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="text-xl font-bold text-white tracking-wide">
+          <Link href="/">ELIJAH<span className="text-primary">.</span></Link>
         </div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center space-x-8">
-              <Link href="#home" className="text-text-color dark:text-white hover:text-primary transition-colors">Home</Link>
-              <Link href="#about" className="text-text-color dark:text-white hover:text-primary transition-colors">About</Link>
-              <Link href="#skills" className="text-text-color dark:text-white hover:text-primary transition-colors">Skills</Link>
-              <Link href="#education" className="text-text-color dark:text-white hover:text-primary transition-colors">Education</Link>
-              <Link href="#projects" className="text-text-color dark:text-white hover:text-primary transition-colors">Projects</Link>
-              <Link href="#contact" className="text-text-color dark:text-white hover:text-primary transition-colors">Contact</Link>
-            </div>
-
-        <div className="hidden md:flex items-center space-x-4">
-          {/* Dark mode toggle button removed */}
+          <Link href="#home" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">Home</Link>
+          <Link href="#about" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">About</Link>
+          <Link href="#skills" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">Skills</Link>
+          <Link href="#education" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">Education</Link>
+          <Link href="#projects" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">Projects</Link>
+          <Link href="#contact" className="text-sm font-medium text-gray-300 hover:text-primary transition-colors">Contact</Link>
         </div>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden flex items-center space-x-4">
+        <div className="md:hidden flex items-center">
           <button
             onClick={toggleMenu}
-            className="p-2 rounded-md text-text-color dark:text-white focus:outline-none"
+            className="p-2 text-white focus:outline-none"
             aria-label="Toggle menu"
           >
-            <div className="space-y-1">
-              <span className={`block w-6 h-0.5 bg-text-color dark:bg-white transition-transform ${isMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></span>
-              <span className={`block w-6 h-0.5 bg-text-color dark:bg-white transition-opacity ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
-              <span className={`block w-6 h-0.5 bg-text-color dark:bg-white transition-transform ${isMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></span>
+            <div className="space-y-1.5">
+              <span className={`block w-6 h-0.5 bg-current transition-transform ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></span>
+              <span className={`block w-6 h-0.5 bg-current transition-opacity ${isMenuOpen ? 'opacity-0' : 'opacity-100'}`}></span>
+              <span className={`block w-6 h-0.5 bg-current transition-transform ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></span>
             </div>
           </button>
         </div>
@@ -59,14 +55,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white dark:bg-gray-800 py-4 px-4 shadow-lg">
-          <div className="flex flex-col space-y-3">
-            <Link href="#home" className="py-2 text-text-color dark:text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
-            <Link href="#about" className="py-2 text-text-color dark:text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>About</Link>
-            <Link href="#skills" className="py-2 text-text-color dark:text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Skills</Link>
-            <Link href="#education" className="py-2 text-text-color dark:text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Education</Link>
-            <Link href="#projects" className="py-2 text-text-color dark:text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Projects</Link>
-            <Link href="#contact" className="py-2 text-text-color dark:text-white hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
+        <div className="md:hidden bg-card-bg absolute top-full left-0 w-full border-b border-white/5 shadow-xl">
+          <div className="flex flex-col py-4 px-6 space-y-4">
+            <Link href="#home" className="text-gray-300 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="#about" className="text-gray-300 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link href="#skills" className="text-gray-300 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Skills</Link>
+            <Link href="#education" className="text-gray-300 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Education</Link>
+            <Link href="#projects" className="text-gray-300 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Projects</Link>
+            <Link href="#contact" className="text-gray-300 hover:text-primary transition-colors" onClick={() => setIsMenuOpen(false)}>Contact</Link>
           </div>
         </div>
       )}
