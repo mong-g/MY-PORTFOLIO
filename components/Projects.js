@@ -49,7 +49,7 @@ export default function Projects() {
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex gap-2">
                     {project.isAcademic && (
-                      <span className="text-xs font-medium text-accent tracking-wider uppercase">Academic</span>
+                      <span className="text-xs font-medium text-secondary tracking-wider uppercase">Academic</span>
                     )}
                     {project.isDevelopment && (
                       <span className="text-xs font-medium text-yellow-400 tracking-wider uppercase flex items-center gap-1">

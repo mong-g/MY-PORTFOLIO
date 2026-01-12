@@ -24,18 +24,18 @@ export default function Education() {
     <section id="education" className="py-24 bg-bg-color">
       <div className="container mx-auto px-6">
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white flex items-center gap-4">
-          <span className="w-12 h-0.5 bg-accent"></span>
+          <span className="w-12 h-0.5 bg-primary"></span>
           Education
         </h2>
         
         <div className="max-w-4xl">
           {educationItems.map((item, index) => (
             <div key={index} className="relative pl-10 pb-12 last:pb-0 border-l border-white/10">
-              <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-accent"></div>
+              <div className="absolute -left-1.5 top-0 w-3 h-3 rounded-full bg-primary"></div>
               
               <div className="flex flex-col sm:flex-row sm:items-baseline gap-2 mb-2">
                 <h3 className="text-xl font-bold text-white">{item.degree}</h3>
-                <span className="text-sm font-medium text-accent">{item.date}</span>
+                <span className="text-sm font-medium text-primary">{item.date}</span>
               </div>
               
               <h4 className="text-lg text-slate-300 mb-4">{item.institution}</h4>
