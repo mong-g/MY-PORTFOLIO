@@ -43,7 +43,7 @@ export default function Hero() {
           {/* Action Area */}
           <div className="flex flex-col items-start gap-8">
             <a 
-              href="/cv.pdf" 
+              href="/resume.pdf" 
               target="_blank"
               rel="noopener noreferrer"
               className="px-8 py-3 border border-white/10 hover:border-white/40 text-white font-medium rounded-lg transition-all flex items-center gap-2 bg-white/5 backdrop-blur-sm"
